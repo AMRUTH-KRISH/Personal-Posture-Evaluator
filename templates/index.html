@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center">
+
+<h2 class="mb-4">Welcome {{ session.username }}</h2>
+
+<div class="row justify-content-center">
+
+<div class="col-md-3">
+
+<div class="card shadow p-3">
+<h4>Yoga</h4>
+<p>Evaluate yoga poses</p>
+<a href="/category/yoga" class="btn btn-primary">Start</a>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-3">
+<h4>Exercise</h4>
+<p>Exercise posture evaluation</p>
+<a href="/category/exercise" class="btn btn-success">Start</a>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-3">
+<h4>Planner</h4>
+<p>Generate fitness plan</p>
+<a href="/plan" class="btn btn-warning">Open</a>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow p-3">
+<h4>Progress</h4>
+<p>Track your progress</p>
+<a href="/progress" class="btn btn-info">View</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

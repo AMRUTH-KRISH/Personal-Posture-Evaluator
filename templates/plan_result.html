@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+
+<h2>Fitness Plan for {{ name }}</h2>
+
+</div>
+
+<div class="row justify-content-center">
+
+<div class="col-md-8">
+
+<!-- BMI CARD -->
+<div class="card shadow p-3 mb-3">
+
+<h4>BMI Analysis</h4>
+
+<p><strong>BMI:</strong> {{ bmi }}</p>
+
+<p><strong>Status:</strong> {{ bmi_status }}</p>
+
+</div>
+
+
+<!-- DIET CARD -->
+<div class="card p-3 shadow">
+
+<h5>Diet Recommendation</h5>
+
+<ul style="text-align:left">
+
+<li><b>Breakfast:</b> {{ diet['Breakfast'] }}</li>
+
+<li><b>Lunch:</b> {{ diet['Lunch'] }}</li>
+
+<li><b>Dinner:</b> {{ diet['Dinner'] }}</li>
+
+<li><b>Pre-Workout:</b> {{ diet['Pre Workout'] }}</li>
+
+</ul>
+
+</div>
+
+<h5>AI Recommendation Reason</h5>
+
+<p style="text-align:justify">
+{{ ai_reason }}
+</p>
+
+<!-- EXERCISE CARD -->
+<div class="card shadow p-3 mb-3">
+
+<h4>Exercise Recommendation</h4>
+
+<p>{{ exercise }}</p>
+
+</div>
+
+
+<!-- WEEKLY PLAN -->
+<div class="card shadow p-3 mb-3">
+
+<h4>Weekly Workout Plan</h4>
+
+<table class="table table-striped">
+
+<tr>
+<th>Day</th>
+<th>Activity</th>
+</tr>
+
+{% for day, activity in weekly_schedule.items() %}
+
+<tr>
+<td>{{ day }}</td>
+<td>{{ activity }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+
+<div class="text-center mt-4">
+
+<a href="/download_pdf" class="btn btn-success">
+Download Plan (PDF)
+</a>
+
+<a href="/plan" class="btn btn-primary">
+Generate Another Plan
+</a>
+
+<a href="/" class="btn btn-dark">
+Back to Home
+</a>
+
+</div>
+
+{% endblock %}

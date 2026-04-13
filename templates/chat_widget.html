@@ -1,0 +1,96 @@
+<!-- Floating Chat Icon -->
+<div id="chatIcon" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Chat Window -->
+<div id="chatWindow">
+    <div id="chatHeader">
+        AI Fitness Assistant
+        <span onclick="toggleChat()" style="float:right; cursor:pointer;">✖</span>
+    </div>
+
+    <div id="chatMessages"></div>
+
+    <div id="chatInputArea">
+        <input type="text" id="chatInput" placeholder="Ask something...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<style>
+#chatIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#chatWindow {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 400px;
+    background: white;
+    border: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+#chatHeader {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+}
+
+#chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#chatInputArea {
+    display: flex;
+    padding: 5px;
+}
+#chatInputArea input {
+    flex: 1;
+}
+</style>
+
+<script>
+function toggleChat() {
+    const chat = document.getElementById("chatWindow");
+    chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const message = input.value;
+    if (!message) return;
+
+    const chatMessages = document.getElementById("chatMessages");
+    chatMessages.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+
+    fetch("/chat_response", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ message: message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        chatMessages.innerHTML += "<p><strong>AI:</strong> " + data.reply + "</p>";
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+    input.value = "";
+}
+</script>

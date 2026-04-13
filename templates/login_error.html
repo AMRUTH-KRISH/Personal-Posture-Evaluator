@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-4">
+
+<div class="card shadow p-4 text-center">
+
+<h4 class="text-danger mb-3">
+{{ message }}
+</h4>
+
+<a href="/login" class="btn btn-primary mb-2">
+Try Login Again
+</a>
+
+<a href="/register" class="btn btn-success">
+Go to Register
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
