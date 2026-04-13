@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    margin-top: 60px;
+}
+
+.options a {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px 40px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.pose-list {
+    list-style: none;
+    padding: 0;
+}
+
+.pose-list li {
+    margin: 12px;
+    font-size: 20px;
+}
+
+.score-container {
+    width: 60%;
+    height: 25px;
+    border: 2px solid #333;
+    margin: 15px auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#score-bar {
+    height: 100%;
+    width: 0%;
+    background: green;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.score-box {
+    text-align: center;
+    margin: 10px;
+}
+
+.score-box h3 {
+    font-size: 28px;
+    margin: 5px;
+}
+
+.score-box p {
+    font-size: 18px;
+    color: #555;
+}
+
+.feedback-text {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.voice-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.plan-form {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-form input,
+.plan-form select {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.bmi-Underweight {
+    color: orange;
+    font-weight: bold;
+}
+
+.bmi-Normal-Weight {
+    color: green;
+    font-weight: bold;
+}
+
+.bmi-Overweight {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.bmi-Obese {
+    color: red;
+    font-weight: bold;
+}
