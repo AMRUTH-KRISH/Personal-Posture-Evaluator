@@ -35,7 +35,7 @@ project/ │ ├── app.py ├── fitness.db ├── requirements.txt �
 ## ⚙️ Installation & Setup
 
 1. Clone the repository:
-   git clone https://github.com/your-username/your-repo-name.git⁠� cd your-repo-name
+   git clone https://github.com/AMRUTH-KRISH/Personal-Posture-Evaluator 
 2. Install dependencies:
    pip install -r requirements.txt
 3. Run the application:
